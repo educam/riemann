@@ -9,7 +9,7 @@ zeta e vai até a verificação de zeros em alturas de 10⁸, com um laboratóri
 
 | Arquivo | O que é |
 |---|---|
-| [`riemann_hipotese.ipynb`](riemann_hipotese.ipynb) | **Notebook Jupyter** com 8 lições, fórmulas e células para experimentar. Já vem com os gráficos, então dá para ler direto no GitHub. |
+| [`riemann_hipotese.ipynb`](riemann_hipotese.ipynb) | **Notebook Jupyter** com 9 lições, fórmulas e células para experimentar. Já vem com os gráficos, então dá para ler direto no GitHub. |
 | [`riemann_app.py`](riemann_app.py) | **Aplicativo com janela** (matplotlib) com as lições 1 a 7 e botões ◀ ▶ para navegar. |
 
 ## As lições
@@ -22,6 +22,7 @@ zeta e vai até a verificação de zeros em alturas de 10⁸, com um laboratóri
 6. **Mapa de calor:** |ζ(σ+it)| na faixa crítica.
 7. **Por que importa:** os zeros reconstroem a "escada" dos números primos (fórmula explícita).
 8. **🧪 Laboratório (só no notebook):** conta zeros perto de t = 10⁸ com a fórmula de Riemann–Siegel, compara CPU × GPU e mostra por que `float32` não serve.
+9. **🏎️ Limites da GPU (só no notebook):** um kernel CUDA próprio (`cp.RawKernel`), uma varredura de alturas com vazão em termos/s, a busca do "muro" da precisão do `float64`, `float32` × `float64` e testes de memória. Os resultados são salvos em `benchmark_gpu.csv`.
 
 | | |
 |---|---|
