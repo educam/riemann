@@ -56,11 +56,16 @@ Navegue com os botões ou com as setas ← → do teclado. Para salvar as imagen
 
 ### GPU (opcional)
 
-A lição 8 usa automaticamente uma GPU NVIDIA se o [CuPy](https://cupy.dev) estiver instalado:
+As lições 8 e 9 usam automaticamente uma GPU NVIDIA se o [CuPy](https://cupy.dev) estiver instalado. Rode
+`nvidia-smi` e escolha o pacote pela **CUDA Version** do driver (instale só um deles):
 
 ```bash
-pip install cupy-cuda12x
+pip install "cupy-cuda13x[ctk]"   # driver com CUDA 13.x
+pip install "cupy-cuda12x[ctk]"   # driver com CUDA 12.x
 ```
+
+Se o seu usuário do Windows tem acento (ex.: `C:\Users\Usuário`), o notebook contorna sozinho uma limitação do
+compilador de kernels da NVIDIA, que não aceita esses caminhos.
 
 Sem CuPy, tudo roda na CPU. O mesmo código serve para os dois: as funções recebem `xp = numpy` ou `xp = cupy`.
 
@@ -72,7 +77,12 @@ O notebook não depende do `mpmath` ponto a ponto, que é lento. Ele usa versõe
 - `Z(t)`: calculada a partir da função θ, via log-gama complexa.
 - `zeros(n)`: acha as trocas de sinal e refina todos os zeros juntos por bisseção. O resultado fica guardado em `zeros_riemann.npy`.
 
-Rodar o notebook inteiro leva cerca de 10 s numa CPU de notebook.
+Rodar as lições 1 a 8 leva cerca de 10 s numa CPU de notebook.
+
+### Resultados numa RTX 5080
+
+- **Vazão:** até **5,75 bilhões de termos/s** com o kernel CUDA próprio, cerca de 65 vezes a CPU (um AMD Zen 5, que chegou a 89 milhões/s).
+- **Muro da precisão:** o `float64` conta os zeros certo até t = 10¹⁴. Em 10¹⁵ ele já erra (26 zeros contados contra 40 previstos).
 
 ## Para continuar estudando
 
